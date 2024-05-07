@@ -1,19 +1,19 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutterxfirebase/components/custom_button.dart';
-import 'package:flutterxfirebase/components/custome_text_field.dart';
 
-class LoginPage extends StatefulWidget {
-  final  Function()? onTap;
-  const LoginPage({super.key,required this.onTap});
+import '../components/custom_button.dart';
+import '../components/custome_text_field.dart';
+
+class RegisterPage extends StatefulWidget {
+  final Function()? onTap;
+  const RegisterPage({super.key , required this.onTap});
 
   @override
-  State<LoginPage> createState() => _LoginPageState();
+  State<RegisterPage> createState() => _RegisterPageState();
 }
 
-class _LoginPageState extends State<LoginPage> {
+class _RegisterPageState extends State<RegisterPage> {
   final TextEditingController emailController = TextEditingController();
-
+  final TextEditingController confirmPasswordController = TextEditingController();
   final TextEditingController passwordController = TextEditingController();
 
   @override
@@ -22,20 +22,20 @@ class _LoginPageState extends State<LoginPage> {
       backgroundColor: Theme.of(context).colorScheme.background,
       body: Center(
         child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
+          mainAxisAlignment: MainAxisAlignment.center,
           children: [
             //logo
             Icon(Icons.lock_open_rounded,
-            size: 72,
-            color: Theme.of(context).colorScheme.inversePrimary,),
+              size: 72,
+              color: Theme.of(context).colorScheme.inversePrimary,),
             SizedBox(height: 25,),
 
             //message and slogan
-            Text("Food Delivery App",
-            style: TextStyle(
-              fontSize: 16 ,
-              color:  Theme.of(context).colorScheme.inversePrimary,
-            ),),
+            Text("Let's create an account",
+              style: TextStyle(
+                fontSize: 16 ,
+                color:  Theme.of(context).colorScheme.inversePrimary,
+              ),),
             SizedBox(height: 25,),
 
 
@@ -52,25 +52,32 @@ class _LoginPageState extends State<LoginPage> {
                 obscureText: true),
             SizedBox(height: 10,),
 
-
-            //signin button
-
-            MyButton(onTap: (){}, text: "SIGN IN"),
+            MyTextField(
+                controller: confirmPasswordController,
+                hintText: "Confirm password",
+                obscureText: true),
             SizedBox(height: 25,),
 
-            //register button
+
+            //sign up button
+
+            MyButton(onTap: (){}, text: "SIGN UP"),
+            SizedBox(height: 25,),
+
+            //login
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Text("Not a member?" ,style: TextStyle(
-                  color: Theme.of(context).colorScheme.inversePrimary
+                Text("Already have an account ?" ,style: TextStyle(
+                    color: Theme.of(context).colorScheme.inversePrimary
                 ),),
                 SizedBox(width: 4,),
                 GestureDetector(
-                  onTap: widget.onTap,
-                  child: Text("Register now",style: TextStyle(
+                  onTap:widget.onTap,
+
+                  child: Text("Login now",style: TextStyle(
                       color: Theme.of(context).colorScheme.inversePrimary,
-                    fontWeight: FontWeight.bold
+                      fontWeight: FontWeight.bold
                   ),),
                 ),
               ],

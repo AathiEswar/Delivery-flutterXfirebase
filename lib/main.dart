@@ -1,14 +1,14 @@
 import 'dart:js';
 
 import 'package:flutter/material.dart';
-import 'package:flutterxfirebase/pages/login_page.dart';
+import 'package:flutterxfirebase/auth/login_or_register.dart';
 import 'package:flutterxfirebase/themes/theme_provider.dart';
 import "package:provider/provider.dart";
 
 void main() {
   runApp(
       ChangeNotifierProvider(create: (context) => ThemeProvider(),
-      child: const MyApp(),)
+        child: const MyApp(),)
   );
 }
 
@@ -20,7 +20,7 @@ class MyApp extends StatelessWidget {
     return  MaterialApp(
       debugShowCheckedModeBanner: false,
 
-      home:const LoginPage(),
+      home: const LoginOrRegister(),
       theme: Provider.of<ThemeProvider>(context).themeData,
     );
   }
