@@ -3,6 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:flutterxfirebase/components/custom_button.dart';
 import 'package:flutterxfirebase/components/custome_text_field.dart';
 
+import 'home_page.dart';
+
 class LoginPage extends StatefulWidget {
   final  Function()? onTap;
   const LoginPage({super.key,required this.onTap});
@@ -12,10 +14,23 @@ class LoginPage extends StatefulWidget {
 }
 
 class _LoginPageState extends State<LoginPage> {
+  //controllers
   final TextEditingController emailController = TextEditingController();
-
   final TextEditingController passwordController = TextEditingController();
 
+  //login 
+  void login(){
+    // Authenticatio for login
+    
+    
+    //navigate to the home page  
+    
+    Navigator.push(context,
+      MaterialPageRoute(
+          builder: (context) => HomePage()) ,
+    );
+  }
+  
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -55,7 +70,8 @@ class _LoginPageState extends State<LoginPage> {
 
             //signin button
 
-            MyButton(onTap: (){}, text: "SIGN IN"),
+            MyButton(onTap: login,
+                text: "SIGN IN"),
             SizedBox(height: 25,),
 
             //register button

@@ -2,6 +2,8 @@ import 'dart:js';
 
 import 'package:flutter/material.dart';
 import 'package:flutterxfirebase/auth/login_or_register.dart';
+import 'package:flutterxfirebase/pages/home_page.dart';
+import 'package:flutterxfirebase/pages/settings_page.dart';
 import 'package:flutterxfirebase/themes/theme_provider.dart';
 import "package:provider/provider.dart";
 
@@ -20,7 +22,7 @@ class MyApp extends StatelessWidget {
     return  MaterialApp(
       debugShowCheckedModeBanner: false,
 
-      home: const LoginOrRegister(),
+      home: LoginOrRegister(),
       theme: Provider.of<ThemeProvider>(context).themeData,
     );
   }
