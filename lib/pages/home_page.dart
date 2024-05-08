@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutterxfirebase/components/custom_current_location.dart';
+import 'package:flutterxfirebase/components/custom_description_box.dart';
 import 'package:flutterxfirebase/components/custom_drawer.dart';
 import 'package:flutterxfirebase/components/custom_silver_app_bar.dart';
 
@@ -29,7 +31,16 @@ class _HomePageState extends State<HomePage> {
             child:Column(
               mainAxisAlignment: MainAxisAlignment.end,
               children: [
-                Text("HELLOOOOOOO")
+                Divider(
+                  indent: 25,
+                  endIndent: 25,
+                  color: Theme.of(context).colorScheme.secondary,
+                ),
+               //current location
+                MyCurrentLocation(),
+
+                //description box
+                MyDescriptionBox(),
               ],
             ),
             title: Text("title"),
