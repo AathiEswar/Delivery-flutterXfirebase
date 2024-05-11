@@ -2,6 +2,7 @@ import 'dart:js';
 
 import 'package:flutter/material.dart';
 import 'package:flutterxfirebase/auth/login_or_register.dart';
+import 'package:flutterxfirebase/model/restaurant.model.dart';
 import 'package:flutterxfirebase/pages/home_page.dart';
 import 'package:flutterxfirebase/pages/settings_page.dart';
 import 'package:flutterxfirebase/themes/theme_provider.dart';
@@ -9,8 +10,13 @@ import "package:provider/provider.dart";
 
 void main() {
   runApp(
-      ChangeNotifierProvider(create: (context) => ThemeProvider(),
-        child: const MyApp(),)
+    MultiProvider(
+      providers: [
+        ChangeNotifierProvider(create: (context) => ThemeProvider()),
+        ChangeNotifierProvider(create: (context) => Restaurant()),
+      ],
+      child: const MyApp(),
+    ),
   );
 }
 
@@ -19,12 +25,10 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return  MaterialApp(
+    return MaterialApp(
       debugShowCheckedModeBanner: false,
-
       home: HomePage(),
       theme: Provider.of<ThemeProvider>(context).themeData,
     );
   }
 }
-
