@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutterxfirebase/pages/cart_page.dart';
 
 class MySliverAppBar extends StatelessWidget {
   final Widget child;
@@ -15,6 +16,9 @@ class MySliverAppBar extends StatelessWidget {
       pinned: true,
       actions: [
         IconButton(onPressed: (){
+          //go to cart page
+          Navigator.push(context, MaterialPageRoute(builder: (context) => CartPage()));
+
 
         }, icon: Icon(Icons.shopping_cart))
       ],
