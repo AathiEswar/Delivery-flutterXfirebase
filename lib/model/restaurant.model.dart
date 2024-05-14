@@ -65,11 +65,13 @@ class Restaurant extends ChangeNotifier {
         ])
   ];
 
+  //delivery address
+  String _deliveryAddress = "81/97 Kolathur , Chennai-99";
   //GETTERS
   List<Food> get menu => _menu;
 
   List<CartItem> get cart => _cart;
-
+  String get deliveryAddress => _deliveryAddress;
 //OPERATIONS
 //user cart
 
@@ -147,6 +149,11 @@ class Restaurant extends ChangeNotifier {
     notifyListeners();
   }
 
+  void updateDeliveryAddress(String newAddress){
+    _deliveryAddress = newAddress;
+    notifyListeners();
+  }
+
 //HELPERS
 //generate a receipt
 
@@ -181,6 +188,9 @@ class Restaurant extends ChangeNotifier {
     receipt.writeln("Total Items: ${getTotalItemCount()}");
 
     receipt.writeln("Total Price: ${_formatPrice(getTotalPrice())}");
+    receipt.writeln();
+    receipt.writeln("Delivering to : "+deliveryAddress);
+
 
   return receipt.toString();
   }

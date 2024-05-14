@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutterxfirebase/services/auth/auth_services.dart';
 
 import '../components/custom_button.dart';
 import '../components/custome_text_field.dart';
@@ -15,7 +16,27 @@ class _RegisterPageState extends State<RegisterPage> {
   final TextEditingController emailController = TextEditingController();
   final TextEditingController confirmPasswordController = TextEditingController();
   final TextEditingController passwordController = TextEditingController();
+  void register() async{
+ final _authService = AuthService();
 
+ //check if passwords match
+
+    if(passwordController.text == confirmPasswordController.text){
+      try{
+        await _authService.signUpWithEmailPassword(emailController.text, passwordController.text);
+      }
+      catch(e){
+        showDialog(context: context, builder: (context) => AlertDialog(
+          title: Text(e.toString()),
+        ));
+      }
+    }
+    else{
+      showDialog(context: context, builder: (context) => AlertDialog(
+        title: Text("Password's dont match"),
+      ));
+    }
+  }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -61,7 +82,9 @@ class _RegisterPageState extends State<RegisterPage> {
 
             //sign up button
 
-            MyButton(onTap: (){}, text: "SIGN UP"),
+            MyButton(onTap: (){
+              register();
+            }, text: "SIGN UP"),
             SizedBox(height: 25,),
 
             //login

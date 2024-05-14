@@ -1,7 +1,7 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutterxfirebase/components/custom_button.dart';
 import 'package:flutterxfirebase/components/custome_text_field.dart';
+import 'package:flutterxfirebase/services/auth/auth_services.dart';
 
 import 'home_page.dart';
 
@@ -19,16 +19,21 @@ class _LoginPageState extends State<LoginPage> {
   final TextEditingController passwordController = TextEditingController();
 
   //login 
-  void login(){
-    // Authenticatio for login
-    
-    
-    //navigate to the home page  
-    
-    Navigator.push(context,
-      MaterialPageRoute(
-          builder: (context) => HomePage()) ,
-    );
+  void login() async{
+   //get auth instance
+   final  _authService = AuthService();
+
+   //sign in
+
+    try{
+      await _authService.signInWithEmailPassword(emailController.text, passwordController.text);
+
+    }
+    catch (e){
+      showDialog(context: context, builder: (context)=> AlertDialog(
+        title: Text(e.toString()),
+      ));
+    }
   }
   
   @override

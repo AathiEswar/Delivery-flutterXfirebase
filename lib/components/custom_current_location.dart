@@ -1,28 +1,40 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+
+import '../model/restaurant.model.dart';
 
 class MyCurrentLocation extends StatelessWidget {
-  const MyCurrentLocation({super.key});
-
+  MyCurrentLocation({super.key});
+ TextEditingController textController = TextEditingController();
   void openLoactionSearchBox(BuildContext context) {
     showDialog(
         context: context,
         builder: (context) => AlertDialog(
               title: Text("Your Location"),
               content: TextField(
-                decoration: InputDecoration(
-                  hintText: "Search Address.."
-                ),
+                decoration: InputDecoration(hintText: "Enter Address.."),
               ),
-          actions: [
-            //cancel Button
-              MaterialButton(onPressed: ()=> Navigator.pop(context) ,
-              child: Text("Cancel"),),
-            //save Button
-            //cancel Button
-            MaterialButton(onPressed: ()=> Navigator.pop(context) ,
-              child: Text("Save"),),
-          ],
+              actions: [
+                //cancel Button
+                MaterialButton(
+                  onPressed: () => Navigator.pop(context),
+                  child: Text("Cancel"),
+                ),
+                //save Button
+                //cancel Button
+                MaterialButton(
+
+                  onPressed: (){
+                    String newAddress = textController.text;
+                    context.read<Restaurant>().updateDeliveryAddress(newAddress);
+                    Navigator.pop(context);
+                    textController.clear();
+                    },
+
+                  child: Text("Save"),
+                ),
+              ],
             ));
   }
 
@@ -44,11 +56,14 @@ class MyCurrentLocation extends StatelessWidget {
             child: Row(
               children: [
                 //address
-                Text("No 81/97 , Kolathur , Chennai",
-                    style: TextStyle(
-                      color: Theme.of(context).colorScheme.inversePrimary,
-                      fontWeight: FontWeight.bold,
-                    )),
+                Consumer<Restaurant>(
+                  builder: (context, restaurant, child) =>
+                      Text(restaurant.deliveryAddress,
+                          style: TextStyle(
+                            color: Theme.of(context).colorScheme.inversePrimary,
+                            fontWeight: FontWeight.bold,
+                          )),
+                ),
 
                 Icon(Icons.keyboard_arrow_down_rounded),
                 //dropdown

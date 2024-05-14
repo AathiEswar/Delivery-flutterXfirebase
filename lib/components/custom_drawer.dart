@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutterxfirebase/services/auth/auth_services.dart';
 import '../pages/settings_page.dart';
 import 'custom_drawer_tile.dart';
 
@@ -10,6 +11,12 @@ class MyDrawer extends StatefulWidget {
 }
 
 class _MyDrawerState extends State<MyDrawer> {
+
+  void logout(){
+    final _authService = AuthService();
+    _authService.signOut();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Drawer(
@@ -61,7 +68,10 @@ class _MyDrawerState extends State<MyDrawer> {
           MyDrawerTile(
             title: 'L O G O U T',
             icon: Icons.logout,
-            onTap: () {  },
+            onTap: () {
+              logout();
+              Navigator.pop(context);
+            },
           ),
           SizedBox(
             height: 20,
