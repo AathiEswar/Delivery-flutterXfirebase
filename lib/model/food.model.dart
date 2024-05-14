@@ -23,7 +23,7 @@ class Food{
 
 
 enum FoodCategory {
-  burgers, salads  , slides , desserts , drinks
+  burgers, salads    , desserts , drinks
 }
 
 class Addon{

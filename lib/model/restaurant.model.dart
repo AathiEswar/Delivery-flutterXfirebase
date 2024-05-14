@@ -46,7 +46,7 @@ class Restaurant extends ChangeNotifier {
         description: "Mixed Tacos",
         imagePath: "assets/food/tacos.png",
         price: 299.0,
-        category: FoodCategory.slides,
+        category: FoodCategory.drinks,
         availableAddons: [
           Addon(name: "Extra cheese ", price: 20.0),
           Addon(name: "Extra sauce ", price: 20.0),
