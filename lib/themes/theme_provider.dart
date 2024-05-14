@@ -4,7 +4,7 @@ import "package:flutterxfirebase/themes/light_mode.dart";
 
 class ThemeProvider with ChangeNotifier{
   //private variable instance
-  ThemeData _themeData = lightMode;
+  ThemeData _themeData = darkMode;
   // ThemeData _themeData = darkMode;
 
   //inbuilt getter syntax in flutter

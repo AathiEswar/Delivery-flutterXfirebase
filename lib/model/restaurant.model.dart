@@ -9,10 +9,20 @@ class Restaurant extends ChangeNotifier {
   //list of food menu
   final List<Food> _menu = [
     Food(
-        name: "Burger",
-        description: "Veg Burger",
-        imagePath: "assets/food/burger.png",
+        name: "Veg Burger",
+        description: "Topped with fresh lettuce, tomato, melted cheese, pickles, and creamy avocado spread, all nestled between toasted whole grain buns.",
+        imagePath: "assets/food/tasty-burger-isolated-white-background-fresh-hamburger-fastfood-with-beef-cheese.jpg",
         price: 299.0,
+        category: FoodCategory.burgers,
+        availableAddons: [
+          Addon(name: "Extra cheese ", price: 20.0),
+          Addon(name: "Extra sauce ", price: 20.0),
+          Addon(name: "Extra topings", price: 20.0),
+        ]),  Food(
+        name: "Chicken Burger",
+        description: "Topped with fresh lettuce, tomato, melted cheese, pickles, and creamy avocado spread, all nestled between toasted whole grain buns.",
+        imagePath: "assets/food/Crispy-fried-chicken-burgers_5.webp",
+        price: 399.0,
         category: FoodCategory.burgers,
         availableAddons: [
           Addon(name: "Extra cheese ", price: 20.0),
@@ -66,7 +76,7 @@ class Restaurant extends ChangeNotifier {
   ];
 
   //delivery address
-  String _deliveryAddress = "81/97 Kolathur , Chennai-99";
+  String _deliveryAddress = "81/97, Thirumalai Nagar,3rd main street, Kolathur, Chennai-99";
   //GETTERS
   List<Food> get menu => _menu;
 

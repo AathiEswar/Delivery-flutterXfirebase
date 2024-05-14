@@ -15,7 +15,7 @@ class MyDescriptionBox extends StatelessWidget {
     return Container(
       decoration: BoxDecoration(
           border: Border.all(
-        color: Theme.of(context).colorScheme.secondary,
+        color: Theme.of(context).colorScheme.inversePrimary,
       ),
       borderRadius: BorderRadius.circular(8)),
       padding: EdgeInsets.all(25),
@@ -26,7 +26,7 @@ class MyDescriptionBox extends StatelessWidget {
           //delivery fee
         Column(
           children: [
-            Text("250" ,style: myPrimaryTextStyle,),
+            Text("₹25" ,style: myPrimaryTextStyle,),
             Text("Delivery Fee" , style: mySecondaryTextStyle,)
           ],
         ),

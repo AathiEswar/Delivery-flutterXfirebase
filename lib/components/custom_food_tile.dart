@@ -26,12 +26,14 @@ class MyFoodTile extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     //details
-                    Text(food.name),
-                    Text("\$"+food.price.toString() , style: TextStyle(
+                    Text(food.name , style: TextStyle(
+                      color: Theme.of(context).colorScheme.inversePrimary,
+                    ),),
+                    Text("₹"+food.price.toString() , style: TextStyle(
                       color: Theme.of(context).colorScheme.primary,
                     ),),
                     const SizedBox(height: 10,),
-                    Text(food.description, style: TextStyle(
+                    Text(food.description,maxLines: 2, overflow: TextOverflow.ellipsis, style: TextStyle(
                       color: Theme.of(context).colorScheme.inversePrimary,
                     ),),
 
@@ -44,7 +46,8 @@ class MyFoodTile extends StatelessWidget {
                 ClipRRect(
                   borderRadius: BorderRadius.circular(8),
                   child: Image.asset(food.imagePath ,
-                    height: 120,),
+                    width: 150,
+                    height: 150,),
                 ),
               ],
             ),

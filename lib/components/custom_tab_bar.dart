@@ -20,7 +20,7 @@ class MyTabBar extends StatelessWidget {
 
       child: TabBar(
         labelStyle: TextStyle(fontSize: 12), // Adjust font size of selected tab label
-        unselectedLabelStyle: TextStyle(fontSize: 12),
+        unselectedLabelStyle: TextStyle(fontSize: 12 , color: Theme.of(context).colorScheme.inversePrimary),
         controller: tabController,
         tabs:_buildCategoryTabs(),
       ),

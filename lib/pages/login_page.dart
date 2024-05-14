@@ -63,6 +63,7 @@ class _LoginPageState extends State<LoginPage> {
             MyTextField(
                 controller: emailController,
                 hintText: "Email",
+
                 obscureText: false),
             SizedBox(height: 10,),
 

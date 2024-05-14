@@ -58,11 +58,15 @@ class MyCurrentLocation extends StatelessWidget {
                 //address
                 Consumer<Restaurant>(
                   builder: (context, restaurant, child) =>
-                      Text(restaurant.deliveryAddress,
-                          style: TextStyle(
-                            color: Theme.of(context).colorScheme.inversePrimary,
-                            fontWeight: FontWeight.bold,
-                          )),
+                      Container(
+                        width: MediaQuery.of(context).size.width * 0.7,
+                        child: Text(restaurant.deliveryAddress,
+                            overflow: TextOverflow.ellipsis,
+                            style: TextStyle(
+                              color: Theme.of(context).colorScheme.inversePrimary,
+                              fontWeight: FontWeight.bold,
+                            )),
+                      ),
                 ),
 
                 Icon(Icons.keyboard_arrow_down_rounded),
