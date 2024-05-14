@@ -55,7 +55,7 @@ class MyFoodTile extends StatelessWidget {
         ),
 
         Divider(
-          color: Theme.of(context).colorScheme.tertiary,
+          color: Theme.of(context).colorScheme.inversePrimary,
           endIndent: 25,
           indent: 25,
         )

@@ -48,7 +48,6 @@ class _HomePageState extends State<HomePage>
       List<Food> categoryMenu = _filterMenuByCategory(category, fullMenu);
 
       return ListView.builder(
-
           itemCount: categoryMenu.length,
           padding: EdgeInsets.zero,
           physics: const NeverScrollableScrollPhysics(),
@@ -97,7 +96,7 @@ class _HomePageState extends State<HomePage>
                   color: Theme.of(context).colorScheme.secondary,
                 ),
                 //current location
-               MyCurrentLocation(),
+                MyCurrentLocation(),
 
                 //description box
                 MyDescriptionBox(),
